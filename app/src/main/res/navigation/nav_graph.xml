@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment android:id="@+id/loginFragment"
+        android:name="com.example.valentinesgarage.ui.auth.LoginFragment"
+        android:label="Login">
+        <action android:id="@+id/action_login_to_checkIn"
+            app:destination="@id/checkInFragment"/>
+        <action android:id="@+id/action_login_to_truckList"
+            app:destination="@id/truckListFragment"/>
+        <action android:id="@+id/action_login_to_reports"
+            app:destination="@id/reportsFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/checkInFragment"
+        android:name="com.example.valentinesgarage.ui.checkin.CheckInFragment"
+        android:label="Truck Check-In"/>
+
+    <fragment android:id="@+id/truckListFragment"
+        android:name="com.example.valentinesgarage.ui.mechanic.TruckListFragment"
+        android:label="Trucks">
+        <action android:id="@+id/action_truckList_to_tasks"
+            app:destination="@id/mechanicTasksFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/mechanicTasksFragment"
+        android:name="com.example.valentinesgarage.ui.mechanic.MechanicTasksFragment"
+        android:label="Repair Tasks">
+        <argument android:name="truckId" app:argType="integer"/>
+        <argument android:name="truckReg" app:argType="string"/>
+    </fragment>
+
+    <fragment android:id="@+id/reportsFragment"
+        android:name="com.example.valentinesgarage.ui.reports.ReportsFragment"
+        android:label="Reports"/>
+</navigation>

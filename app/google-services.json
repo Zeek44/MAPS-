@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "892564166357",
+    "project_id": "valentinesgarage-cc760",
+    "storage_bucket": "valentinesgarage-cc760.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892564166357:android:ae3290ea58247dcd85745c",
+        "android_client_info": {
+          "package_name": "com.example.valentinesgarage"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0V581TD9PAck9siiaapfK86qPCI2xJX0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
