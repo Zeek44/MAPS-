@@ -18,7 +18,7 @@ import java.security.MessageDigest
 
 @Database(
     entities = [Truck::class, RepairTask::class, User::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -49,9 +49,27 @@ abstract class AppDatabase : RoomDatabase() {
                             super.onCreate(db)
                             CoroutineScope(Dispatchers.IO).launch {
                                 val dao = INSTANCE?.userDao()
-                                dao?.insertUser(User("valentine", "admin123".md5(), "admin"))
-                                dao?.insertUser(User("mechanic1", "mech123".md5(), "mechanic"))
-                                dao?.insertUser(User("receptionist1", "recep123".md5(), "receptionist"))
+                                dao?.insertUser(User(
+                                    username = "valentine",
+                                    passwordHash = "admin123".md5(),
+                                    role = "admin",
+                                    isApproved = true,
+                                    fullName = "Valentine"
+                                ))
+                                dao?.insertUser(User(
+                                    username = "mechanic1",
+                                    passwordHash = "mech123".md5(),
+                                    role = "mechanic",
+                                    isApproved = true,
+                                    fullName = "Mechanic One"
+                                ))
+                                dao?.insertUser(User(
+                                    username = "receptionist1",
+                                    passwordHash = "recep123".md5(),
+                                    role = "receptionist",
+                                    isApproved = true,
+                                    fullName = "Receptionist One"
+                                ))
                             }
                         }
                     }).build()

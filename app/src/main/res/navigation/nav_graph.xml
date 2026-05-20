@@ -13,7 +13,13 @@
             app:destination="@id/truckListFragment"/>
         <action android:id="@+id/action_login_to_reports"
             app:destination="@id/reportsFragment"/>
+        <action android:id="@+id/action_login_to_register"
+            app:destination="@id/registerFragment"/>
     </fragment>
+
+    <fragment android:id="@+id/registerFragment"
+        android:name="com.example.valentinesgarage.ui.auth.RegisterFragment"
+        android:label="Register"/>
 
     <fragment android:id="@+id/checkInFragment"
         android:name="com.example.valentinesgarage.ui.checkin.CheckInFragment"
@@ -35,5 +41,21 @@
 
     <fragment android:id="@+id/reportsFragment"
         android:name="com.example.valentinesgarage.ui.reports.ReportsFragment"
-        android:label="Reports"/>
+        android:label="Reports">
+        <action android:id="@+id/action_reports_to_approval"
+            app:destination="@id/adminApprovalFragment"/>
+        <action android:id="@+id/action_reports_to_detail"
+            app:destination="@id/truckReportDetailFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/adminApprovalFragment"
+        android:name="com.example.valentinesgarage.ui.reports.AdminApprovalFragment"
+        android:label="Pending Approvals"/>
+
+    <fragment android:id="@+id/truckReportDetailFragment"
+        android:name="com.example.valentinesgarage.ui.reports.TruckReportDetailFragment"
+        android:label="Vehicle Report">
+        <argument android:name="truckId" app:argType="integer"/>
+    </fragment>
+
 </navigation>

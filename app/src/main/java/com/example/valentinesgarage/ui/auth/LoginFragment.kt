@@ -48,13 +48,16 @@ class LoginFragment : Fragment() {
             authViewModel.login(username, password)
             tvError.visibility = View.GONE
 
-            // Show error if user is null after observing
             authViewModel.currentUser.observe(viewLifecycleOwner) {
                 if (it == null) {
                     tvError.visibility = View.VISIBLE
                     tvError.text = "Invalid username or password"
                 }
             }
+        }
+
+        view.findViewById<TextView>(R.id.tvRegister).setOnClickListener {
+            findNavController().navigate(R.id.action_login_to_register)
         }
     }
 }

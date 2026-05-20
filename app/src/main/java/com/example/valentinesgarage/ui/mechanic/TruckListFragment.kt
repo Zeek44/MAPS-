@@ -2,6 +2,7 @@ package com.example.valentinesgarage.ui.mechanic
 
 import android.os.Bundle
 import android.view.*
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -18,6 +19,7 @@ class TruckListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val rvTrucks = view.findViewById<RecyclerView>(R.id.rvTrucks)
+        val tvNoTrucks = view.findViewById<TextView>(R.id.tvNoTrucks)
         rvTrucks.layoutManager = LinearLayoutManager(requireContext())
 
         val adapter = TruckAdapter { truck ->
@@ -31,6 +33,7 @@ class TruckListFragment : Fragment() {
 
         truckViewModel.allTrucks.observe(viewLifecycleOwner) { trucks ->
             adapter.submitList(trucks)
+            tvNoTrucks.visibility = if (trucks.isEmpty()) View.VISIBLE else View.GONE
         }
     }
 }
