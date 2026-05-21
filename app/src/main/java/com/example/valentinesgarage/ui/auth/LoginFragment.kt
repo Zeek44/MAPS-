@@ -9,9 +9,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.textfield.TextInputEditText
 import com.example.valentinesgarage.R
 import com.example.valentinesgarage.viewmodel.AuthViewModel
+import com.google.android.material.textfield.TextInputEditText
 
 class LoginFragment : Fragment() {
     private val authViewModel: AuthViewModel by activityViewModels()
